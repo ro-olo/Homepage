@@ -1,0 +1,36 @@
+HEADER:
+Name on top using h1
+Toggle theme btn on the right (hidden for a11y)
+Img (hidden for a11y)
+About me paragraph with three sections:
+    About me title h2, paragraph, icons
+
+SECTION:
+Two sections using flexbox:
+    My Work h2
+    Grid with 6 project previews:
+        Each with a grid 3x1:
+            First row - Screenshot of project (hidden for a11y)
+            Second row - Project name h3 on the left and two icons on the right
+            Third row - Project description
+
+FOOTER:
+Two sections with flexbox:
+    The pic on the right (hidden for a11y)
+    The info section on the left:
+        Contact me title h2
+        Short sentence 
+        Address
+        Number
+        Email
+        Three icons
+
+DARK MODE:
+Dark mode using custom properties in a stylesheet:
+    Decrease brightness and contrast of images with filter
+    Change opacity to convey depth
+Automatically loads theme based on system preferences:
+    prefers-color-scheme media query with css for default OS preferences
+Override of the preferences to allow the user to manually switch themes
+Maintains user's preferred theme on page reloads:
+    Using js and local storage
