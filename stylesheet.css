@@ -1,0 +1,44 @@
+.header {
+    position: relative;
+    height: 500px;
+    z-index: 1; 
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #3d96d2; 
+    transform: skewY(-10deg); 
+    z-index: -1; 
+}
+
+.profile {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    margin: 50px;
+}
+
+.profile_pic {
+    top: 0;
+    left: 0;
+    width: 350px;
+    filter: brightness(85%);
+}
+
+.profile_text {
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: whitesmoke;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    bottom: 10px;
+}
