@@ -1,3 +1,5 @@
+---making use of the prefers-reduced-motion media feature — use it to write a media query
+
 HEADER:
 Name on top using h1
 Toggle theme btn on the right (hidden for a11y)
