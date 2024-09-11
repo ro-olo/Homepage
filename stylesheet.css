@@ -54,7 +54,7 @@ body {
     height: 350px;
     margin-right: -70px;
     z-index: 2;
-    box-shadow: 0px 7px 10px 2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 7px 10px 2px rgba(0, 0, 0, 0.2);
 }
 
 .profile_pic {
@@ -111,7 +111,7 @@ body {
     padding: 40px;
     z-index: 1;
     position: relative;
-    box-shadow: 10px 5px 10px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 10px 5px 10px 1px rgba(0, 0, 0, 0.2);
 }
 
 .about_title, .about_p, .about_icons {
@@ -164,4 +164,70 @@ body {
 
 .toggle_theme:hover {
     border: 3px solid yellow;
+}
+
+section {
+    margin: 50px;
+}
+
+.preview_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+    margin-top: 40px;
+}
+
+.project_card {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 5px solid transparent;
+    transition: all 0.2s ease-out;
+}
+
+.project_card:hover {
+    box-shadow: 0 4px 8px rgba(70, 137, 224, 0.4);
+}
+
+.screenshot img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.name_and_icons, .project_description {
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project_title {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.btn-icon {
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    padding: 3px;
+    border: none;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+}
+
+.btn-icon:hover {
+    transform: scale(1.2);
+}
+
+.contact_container {
+    background-color: #3b86b8;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact_title, .contact_p, .email_container, .phone_number_container {
+    margin: 50px;
 }
