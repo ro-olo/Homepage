@@ -8,7 +8,7 @@
     --text-color-light: rgb(227, 227, 227);
     --toggle-color: rgba(227, 227, 227, 0.7);
     --icon-filter: none;
-    --about-profile-bg: rgba(255, 255, 255, 0.1);
+    --about-profile-bg: rgba(255, 255, 255, 0.03);
     --border-about-profile: rgba(227, 227, 227, 0.7);
 }
 
@@ -451,5 +451,128 @@ footer {
         height: 40px;
         width: 40px;
         padding: 5px;
+    }
+}
+
+@media (max-width: 599px) {
+    body {
+        font-size: 18px;
+    }
+
+    .container {
+        width: 99%;
+    }
+
+    .header {
+        height: auto;
+    }
+
+    .profile_about {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        padding-bottom: 20px;
+        background-color: var(--about-profile-bg);
+        backdrop-filter: blur(10px);
+        width: auto;
+        border: 1px solid var(--border-about-profile);
+        border-radius: 15px;
+        box-shadow: 0px 7px 10px 2px rgba(0, 0, 0, 0.2);
+    } 
+
+    .toggle_btn {
+        z-index: auto;
+        right: 0;
+        top: 0;
+        padding: 10px;
+    }
+
+    .profile {
+        order: 1;
+        width: 300px;
+        height: 300px;
+        margin: 0;
+        box-shadow: none;
+    }
+
+    .profile_pic {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    .pic {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+
+    .profile_text {
+        margin-bottom: -120px;
+        color: var(--text-color-light);
+    }
+
+    .about_container {
+        order: 2;
+        width: 300px;
+        height: auto;
+        text-align: center;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 100px;
+        padding-bottom: 0;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .about_title {
+        display: none;
+    }
+    
+    .about_p, .about_icons {
+        margin: 0px;
+        padding: 20px 20px 0px 20px;
+        font-weight: 400;
+        font-size: 20px;
+        color: var(--text-color-light);
+    }
+
+    .about_icons {
+        padding-bottom: 20px;
+    }
+
+    .header::before {
+        transform: skewY(-6deg);
+    }
+
+    .contact_pic {
+        display: none;
+    }
+
+    .contact_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact_p {
+        text-align: center;
+    }
+
+    .a_icon {
+        height: 40px;
+        width: 40px;
+        padding: 5px;
+    }
+
+    .btn_icon {
+        height: 40px;
+        width: 40px;
     }
 }
