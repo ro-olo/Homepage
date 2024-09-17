@@ -2,10 +2,28 @@
     --body-color: rgb(20, 20, 20);
     --bg-color: rgb(227, 227, 227);
     --bg-color_2: rgb(113, 54, 164);
+    --bg-color_3: rgb(223, 19, 175);
     --bg-color-cards: rgb(242, 242, 242);
     --text-color-dark: rgb(20, 20, 20);
     --text-color-light: rgb(227, 227, 227);
-    --toggle-color: rgb(255, 255, 27);
+    --toggle-color: rgba(227, 227, 227, 0.7);
+    --icon-filter: none;
+    --about-profile-bg: rgba(255, 255, 255, 0.1);
+    --border-about-profile: rgba(227, 227, 227, 0.7);
+}
+
+:root.dark {
+    --body-color: rgb(24, 23, 26);
+    --bg-color: rgba(227, 227, 227, 0.048);
+    --bg-color_2: rgba(79, 24, 127, 0.6);
+    --bg-color_3: rgb(33, 0, 25);
+    --bg-color-cards: rgb(39, 38, 43);
+    --text-color-dark: rgb(198, 198, 198);
+    --text-color-light: rgb(227, 227, 227, 0.8);
+    --toggle-color: rgba(227, 227, 227, 0.7);
+    --icon-filter: invert(1) brightness(1);
+    --about-profile-bg: rgba(0, 0, 0, 0.1);
+    --border-about-profile: rgba(227, 227, 227, 0.3);
 }
 
 .manrope-simple_font> {
@@ -14,17 +32,18 @@
     font-weight: 200;
     font-style: normal;
   }
-  
+
 body {
     margin: 0;
     padding: 0;
     font-family: "Manrope", Arial, Helvetica, sans-serif;
-    font-size: 16px;;
+    font-size: 16px;
     background-color: var(--body-color);
     display: flex;
     align-items: flex-start;
     justify-content: center;
     height: 100vh;
+    color: var(--text-color-dark);
 }
 
 .container {
@@ -33,6 +52,10 @@ body {
     position: relative;
     margin: 0 auto;
     z-index: 1;
+}
+
+.hidden {
+    display: none;
 }
 
 .header, .profile_about {
@@ -60,7 +83,7 @@ body {
     left: 0;
     right: 0;
     height: 100%;
-    background-color: var(--bg-color_2); 
+    background: linear-gradient(to right, var(--bg-color_2), var(--bg-color_3));
     transform: skewY(-8deg); 
     z-index: -1; 
 }
@@ -152,12 +175,16 @@ body {
 }
 
 .btn_icon {
-    width: 35px;
-    height: 35px;
+    display: inline-block;
+    text-decoration: none;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
     border: none;
     background-color: transparent;
     cursor: pointer;
     transition: all 0.2s ease-in;
+    filter: var(--icon-filter);
 }
 
 .btn_icon:hover {
@@ -166,8 +193,8 @@ body {
 
 .toggle_btn {
     position: absolute;
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     right: 30px;
     top: 30px;
     z-index: 2;
@@ -178,7 +205,7 @@ body {
     width:100%;
     border: 3px solid transparent;
     fill: var(--text-color-light);
-    background-color: var(--bg-color_2);
+    background-color: transparent;
     border-radius: 30px;
     transition: border 0.3s ease;
     cursor: pointer;
@@ -205,7 +232,7 @@ section {
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 5px solid transparent;
-    transition: all 0.2s ease-out;
+    transition: box-shadow 0.2s ease-out;
 }
 
 .project_card:hover {
@@ -239,7 +266,8 @@ p {
     margin-right: auto;
 }
 
-.btn-icon {
+.a_icon {
+    display: inline-block;
     height: 30px;
     width: 30px;
     border-radius: 30px;
@@ -248,15 +276,17 @@ p {
     transition: all 0.2s ease-in;
     cursor: pointer;
     background-color: transparent;
+    text-decoration: none;
+    filter: var(--icon-filter);
 }
 
-.btn-icon:hover {
+.a_icon:hover {
     transform: scale(1.2);
 }
 
 footer {
     display: flex;
-    background-color: var(--bg-color_2);
+    background: linear-gradient(to right, var(--bg-color_3), var(--bg-color_2));
     height: 400px;
     align-items: center;
     justify-content: space-between;
@@ -306,4 +336,120 @@ footer {
     width: 30px;
     height: 30px;
     fill: var(--text-color-light);
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+    body {
+        font-size: 18px;
+    }
+
+    .container {
+        width: 99%;
+    }
+
+    .header {
+        height: auto;
+    }
+
+    .profile_about {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        background-color: --about-profile-bg;
+        backdrop-filter: blur(10px);
+        width: auto;
+        border: 1px solid var(--border-about-profile);
+        border-radius: 15px;
+        box-shadow: 0px 7px 10px 2px rgba(0, 0, 0, 0.2);
+    } 
+
+    .toggle_btn {
+        z-index: auto;
+        right: 0;
+        top: 0;
+        padding: 10px;
+    }
+
+    .profile {
+        order: 1;
+        width: 300px;
+        height: 300px;
+        margin: 0;
+        box-shadow: none;
+    }
+
+    .profile_pic {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    .pic {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+
+    .profile_text {
+        margin-bottom: -120px;
+        color: var(--text-color-light);
+    }
+
+    .about_container {
+        order: 2;
+        width: 500px;
+        height: auto;
+        text-align: center;
+        padding: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 100px;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .about_title {
+        display: none;
+    }
+    
+    .about_p, .about_icons {
+        margin: 0px;
+        padding: 20px 40px 0px 40px;
+        font-weight: 550;
+        font-size: 20px;
+        color: var(--text-color-light);
+    }
+
+    .about_icons {
+        padding-bottom: 20px;
+    }
+
+    .header::before {
+        transform: skewY(-6deg);
+    }
+
+    .contact_pic {
+        display: none;
+    }
+
+    .contact_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact_p {
+        text-align: center;
+    }
+
+    .a_icon {
+        height: 40px;
+        width: 40px;
+        padding: 5px;
+    }
 }

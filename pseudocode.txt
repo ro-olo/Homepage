@@ -36,3 +36,10 @@ Automatically loads theme based on system preferences:
 Override of the preferences to allow the user to manually switch themes
 Maintains user's preferred theme on page reloads:
     Using js and local storage
+
+
+    __________
+
+Adjust btns in order to open links (change them into links??)
+Change icons color when dark mode  (they are imgs)
+Change toggle theme icon and make it switchable between night and light theme
