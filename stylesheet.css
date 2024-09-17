@@ -211,6 +211,10 @@ body {
     cursor: pointer;
 }
 
+.sun, .moon {
+    border: 3px solid transparent;
+}
+
 .toggle_theme:hover {
     border: 3px solid var(--toggle-color);
 }
