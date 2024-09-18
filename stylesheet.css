@@ -256,6 +256,11 @@ section {
     align-items: center;
 }
 
+.project_description {
+    height: 60px;
+    overflow: hidden;
+}
+
 .name_and_icons {
     margin-bottom: 0;
     border-bottom: 1px solid var(--bg-color_2);
