@@ -111,13 +111,25 @@ function createProjectCard(title, imgSrc, githubLink, description) {
     previewContainer.appendChild(card);
 }
 
+obj = [
+    {"name" : "R-P-S", "imgSource":"img.RPS.png", "gitHubLink":" https://github.com/ro-olo/RPS.git", "description": "Rock Paper Scissors game, five rounds to win"}
+]
 
-createProjectCard(
-    'R-P-S',
-    'img/RPS.png',
-    'https://github.com/ro-olo/RPS.git',
-    'Rock Paper Scissors game, five rounds to win.',
-)
+obj.array.forEach(element => {
+     projectname =element.name 
+     img = element.imgSource
+     github = element.gitHubLink
+     description = element.description
+
+     createProjectCard(prohectName, img , github, description)
+});
+
+// createProjectCard(
+//     'R-P-S',
+//     'img/RPS.png',
+//     'https://github.com/ro-olo/RPS.git',
+//     'Rock Paper Scissors game, five rounds to win.',
+// )
 
 createProjectCard(
     'Etch-a-sketch',
