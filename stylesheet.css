@@ -202,8 +202,8 @@ body {
 
 .toggle_theme {
     height: 100%;
-    width:100%;
-    border: 3px solid transparent;
+    width: 100%;
+    border: none;
     fill: var(--text-color-light);
     background-color: transparent;
     border-radius: 30px;
@@ -212,11 +212,11 @@ body {
 }
 
 .sun, .moon {
-    border: 3px solid transparent;
+    border: none;
 }
 
 .toggle_theme:hover {
-    border: 3px solid var(--toggle-color);
+    border: none;
 }
 
 section {
@@ -367,7 +367,8 @@ footer {
         align-items: center;
         justify-content: center;
         padding: 40px;
-        background-color: --about-profile-bg;
+        padding-bottom: 20px;
+        background-color: var(--about-profile-bg);
         backdrop-filter: blur(10px);
         width: auto;
         border: 1px solid var(--border-about-profile);
@@ -393,7 +394,6 @@ footer {
     .profile_pic {
         width: 100%;
         height: 100%;
-        border-radius: 50%;
     }
 
     .pic {
@@ -510,7 +510,6 @@ footer {
     .profile_pic {
         width: 100%;
         height: 100%;
-        border-radius: 50%;
     }
 
     .pic {

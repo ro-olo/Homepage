@@ -32,136 +32,44 @@ function updateIconVisibility() {
 
 applyInitialTheme();
 
-// function to create a project card
-
-function createProjectCard(title, imgSrc, githubLink, description) {
-    // project card structure: project_card div, screenshot div, img, 
-    // name_and_icons div, project_title h3, project_icons div,
-    // github a a_icon, github image img, pagelink a a_icon, pagelink icon svg, path for svg
-    
-    const card = document.createElement('div');
-    card.classList.add('project_card');
-
-    const screenshotDiv = document.createElement('div');
-    screenshotDiv.classList.add('screenshot');
-
-    const img = document.createElement('img');
-    img.src = imgSrc;
-    img.alt = '';
-    img.setAttribute('aria-hidden', 'true');
-    screenshotDiv.appendChild(img);
-
-    const nameAndIconsDiv = document.createElement('div');
-    nameAndIconsDiv.classList.add('name_and_icons');
-
-    const projectTitle = document.createElement('h3');
-    projectTitle.classList.add('project_title');
-
-    const projectIcons = document.createElement('div');
-    projectIcons.classList.add('project_icons');
-    projectTitle.textContent = title;
-
-    const iconsDiv = document.createElement('div');
-    iconsDiv.classList.add('project_icons');
-
-    const githubLinkEl = document.createElement('a');
-    githubLinkEl.href = githubLink;
-    githubLinkEl.target = "_blank";
-    githubLinkEl.role = "button";
-    githubLinkEl.classList.add('a_icon');
-
-    const githubImg = document.createElement('img');
-    githubImg.src = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg";
-    githubImg.alt = 'GitHub';
-    githubLinkEl.appendChild(githubImg);
-
-    const pageLinkEl = document.createElement('a');
-    pageLinkEl.role = 'button';
-    pageLinkEl.ariaLabel = 'Open in a new page';
-    pageLinkEl.classList.add('a_icon');
-
-    const pageLinkIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    pageLinkIcon.setAttribute('viewBox', '0 0 24 24');
-    pageLinkIcon.setAttribute('aria-hidden', 'true');
-
-    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path.setAttribute("d", "M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z");
-    
-    pageLinkIcon.appendChild(path);
-    pageLinkEl.appendChild(pageLinkIcon);
-
-    iconsDiv.appendChild(githubLinkEl);
-    iconsDiv.appendChild(pageLinkEl);
-
-    nameAndIconsDiv.appendChild(projectTitle);
-    nameAndIconsDiv.appendChild(iconsDiv);
-
-    const descriptionDiv = document.createElement('div');
-    descriptionDiv.classList.add('project_description');
-    const descriptionP = document.createElement('p');
-    descriptionP.textContent = description;
-    descriptionDiv.appendChild(descriptionP);
-
-    // parents: descriptionDiv, nameANdIconsDiv, screenshotDiv
-
-    card.appendChild(screenshotDiv);
-    card.appendChild(nameAndIconsDiv);
-    card.appendChild(descriptionDiv);
-
-    previewContainer.appendChild(card);
+// Function to create a project card
+function createProjectCard(projectName, imgSrc, githubLink, description) {
+    return `
+    <div class="project_card">
+        <div class="screenshot">
+            <img src="${imgSrc}" alt="Screenshot of ${projectName} project"> 
+        </div>
+        <div class="name_and_icons">
+            <h3 class="project_title">${projectName}</h3>
+            <div class="project_icons">
+                <a href="${githubLink}" target="_blank" role="button" class="a_icon" aria-label="GitHub repository for ${projectName} project">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub logo"/>
+                </a>
+                <a role="button" aria-label="Open ${projectName} project in a new page" class="a_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" /></svg>
+                </a>
+            </div>
+        </div>
+        <div class="project_description">
+            <p>${description}</p>
+        </div>
+    </div>
+    `;
 }
 
-obj = [
-    {"name" : "R-P-S", "imgSource":"img.RPS.png", "gitHubLink":" https://github.com/ro-olo/RPS.git", "description": "Rock Paper Scissors game, five rounds to win"}
-]
+// Example usage of the function
+const projects = [
+    { name: 'R-P-S', img: 'img/RPS.png', github: 'https://github.com/ro-olo/RPS.git', description: 'Rock Paper Scissors game, five rounds to win.' },
+    { name: 'Etch-a-sketch', img: 'img/sketch.png', github: 'https://github.com/ro-olo/Etch-a-Sketch.git', description: 'Drawing pad in which you can select a color and create some pixel art by coloring the squares of the grid.' },
+    { name: 'Dashboard', img: 'img/dash_light.png', github: 'https://github.com/ro-olo/dashboard.git', description: 'Stylish dashboard created using Grid.' },
+    { name: 'Calculator', img: 'img/calculator.png', github: 'https://github.com/ro-olo/Calculator.git', description: 'Interactive calculator built using JavaScript for real-time calculations.' },
+    { name: 'Dashboard-Dark', img: 'img/dash_dark.png', github: 'https://github.com/ro-olo/dashboard.git', description: 'Dashboard created using Grid with Dark mode.' },
+    { name: 'Form', img: 'img/form.png', github: 'https://github.com/ro-olo/Sign-up_form.git', description: 'A stylish and responsive form designed with HTML and CSS.' }
+];
 
-obj.array.forEach(element => {
-     projectname =element.name 
-     img = element.imgSource
-     github = element.gitHubLink
-     description = element.description
+// Clear existing content in the preview container
+previewContainer.innerHTML = '';
 
-     createProjectCard(prohectName, img , github, description)
+projects.forEach(project => {
+    previewContainer.innerHTML += createProjectCard(project.name, project.img, project.github, project.description);
 });
-
-// createProjectCard(
-//     'R-P-S',
-//     'img/RPS.png',
-//     'https://github.com/ro-olo/RPS.git',
-//     'Rock Paper Scissors game, five rounds to win.',
-// )
-
-createProjectCard(
-    'Etch-a-sketch',
-    'img/sketch.png',
-    'https://github.com/ro-olo/Etch-a-Sketch.git',
-    'Drawing pad in which you can select a color and create some pixel art by coloring the squares of the grid.'
-)
-
-createProjectCard(
-    'Dashboard',
-    'img/dash_light.png',
-    'https://github.com/ro-olo/dashboard.git',
-    'Stylish dashboard created using Grid.',
-)
-
-createProjectCard(
-    'Calculator',
-    'img/calculator.png',
-    'https://github.com/ro-olo/Calculator.git',
-    'Interactive calculator built using JavaScript for real-time calculations.',
-)
-
-createProjectCard(
-    'Dashboard-Dark',
-    'img/dash_dark.png',
-    'https://github.com/ro-olo/dashboard.git',
-    'Dashboard created using Grid with Dark mode.',
-)
-
-createProjectCard(
-    'Form',
-    'img/form.png',
-    'https://github.com/ro-olo/Sign-up_form.git',
-    'A stylish and responsive form designed with HTML and CSS.',
-)
